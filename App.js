@@ -1,18 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import Test_1 from './component/Test_1';
-import reducer from './redux/reducer';
 import { NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import TestBottom_1 from './component/TestBottom_1';
+import { createStackNavigator } from '@react-navigation/stack';
+import { store } from './store';
+import stack1 from './stackNavi/stack1';
+import stack2 from './stackNavi/stack2';
+import stack3 from './stackNavi/stack3';
 
 export default function App() {
 
-  let store = createStore(reducer);
+  // let store = createStore(reducer);
 
+  const stack = createStackNavigator();
   const bottomTab = createBottomTabNavigator();
+
+  const stackScreen = () => {
+    return<>
+      <stack.Navigator>
+        <stack.Screen name='stack1' component={stack1}/>
+        <stack.Screen name='stack2' component={stack2}/>
+        <stack.Screen name='stack3' component={stack3}/>
+      </stack.Navigator>
+    </>
+  }
 
   return (
 
@@ -25,7 +37,7 @@ export default function App() {
             name='HOME' component={Test_1}
           />
           <bottomTab.Screen 
-            name='Bottom_1' component={TestBottom_1}
+            name='Bottom_1' component={stackScreen}
           />
         </bottomTab.Navigator>
       </NavigationContainer>

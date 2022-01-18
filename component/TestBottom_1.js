@@ -16,7 +16,6 @@ const TestBottom_1 = () => {
         <View style={{  backgroundColor: "black", flexDirection: "row", justifyContent: "center" }}>
             <View style={{  height: '100%', flexDirection: 'row' }}>
                 <Pressable onPress={() => navigation.goBack()} style={{ flex: 1, transform: [{ rotate: '180deg' }], justifyContent: 'center' }}>
-                    {/* <LocalSvg asset={Arrow} width={25} height={25} fill={"#ffffff"} /> */}
                 </Pressable>
                 <View style={{ flex: 10, flexDirection: "column", justifyContent: 'center' }}>
                     <Text style={{ textAlign: 'center', fontSize: 20, color: "white" }}>타이틀</Text>
